@@ -1,0 +1,23 @@
+{
+  "name": "Check Creators",
+  "short_name": "Check Creators",
+  "description": "Agência para creators e streamers com oportunidades em Kwai, TikTok e expansão internacional.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#07131f",
+  "theme_color": "#14f1e8",
+  "lang": "pt-BR",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
