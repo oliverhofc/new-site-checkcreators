@@ -1,4 +1,5 @@
 import { useI18n } from '../i18n.jsx';
+import { routeUrl } from '../utils/paths.js';
 
 const BENEFITS_COPY = {
   pt: {
@@ -184,7 +185,7 @@ export default function CreatorBenefits() {
         </div>
 
         <div className="creator-benefits-footer">
-          <a href="/contract" className="btn btn--primary btn--lg">
+          <a href={routeUrl('/contract')} className="btn btn--primary btn--lg">
             <span className="btn-label">{copy.cta}</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <path d="M5 12h14"></path>

@@ -1,6 +1,7 @@
 import { useI18n } from '../i18n.jsx';
 import { useRoute } from '../hooks/RouterContext.jsx';
 import { getWhatsAppLink } from '../utils/whatsapp.js';
+import { routeUrl } from '../utils/paths.js';
 
 export default function Footer() {
   const { copy, language } = useI18n();
@@ -18,7 +19,7 @@ export default function Footer() {
       <div className="container-wide">
         <div className="footer-grid">
           <div className="footer-about">
-            <a href="/" onClick={handleInternal('/')} className="brand">
+            <a href={routeUrl('/')} onClick={handleInternal('/')} className="brand">
               <span className="brand-mark" aria-hidden="true">
                 <span className="brand-mark-inner">C</span>
               </span>
@@ -67,27 +68,27 @@ export default function Footer() {
           <nav className="footer-nav" aria-label={copy.footer.company}>
             <h4 className="footer-title">{copy.footer.company}</h4>
             <ul>
-              <li><a href="/" onClick={handleInternal('/')}>{copy.footer.home}</a></li>
-              <li><a href="/portfolio" onClick={handleInternal('/portfolio')}>{copy.footer.portfolio}</a></li>
-              <li><a href="/services" onClick={handleInternal('/services')}>{copy.footer.services}</a></li>
-              <li><a href="/contract" onClick={handleInternal('/contract')}>{copy.footer.contract}</a></li>
-              <li><a href="/team" onClick={handleInternal('/team')}>{copy.footer.team}</a></li>
+              <li><a href={routeUrl('/')} onClick={handleInternal('/')}>{copy.footer.home}</a></li>
+              <li><a href={routeUrl('/portfolio')} onClick={handleInternal('/portfolio')}>{copy.footer.portfolio}</a></li>
+              <li><a href={routeUrl('/services')} onClick={handleInternal('/services')}>{copy.footer.services}</a></li>
+              <li><a href={routeUrl('/contract')} onClick={handleInternal('/contract')}>{copy.footer.contract}</a></li>
+              <li><a href={routeUrl('/team')} onClick={handleInternal('/team')}>{copy.footer.team}</a></li>
             </ul>
           </nav>
 
           <nav className="footer-nav" aria-label={copy.footer.resources}>
             <h4 className="footer-title">{copy.footer.resources}</h4>
             <ul>
-              <li><a href="/contact" onClick={handleInternal('/contact')}>{copy.footer.contact}</a></li>
-              <li><a href="/faq" onClick={handleInternal('/faq')}>{copy.footer.faq}</a></li>
+              <li><a href={routeUrl('/contact')} onClick={handleInternal('/contact')}>{copy.footer.contact}</a></li>
+              <li><a href={routeUrl('/faq')} onClick={handleInternal('/faq')}>{copy.footer.faq}</a></li>
             </ul>
           </nav>
 
           <nav className="footer-nav" aria-label={copy.footer.legal}>
             <h4 className="footer-title">{copy.footer.legal}</h4>
             <ul>
-              <li><a href="/privacy-policy" onClick={handleInternal('/privacy-policy')}>{copy.footer.privacy}</a></li>
-              <li><a href="/terms" onClick={handleInternal('/terms')}>{copy.footer.terms}</a></li>
+              <li><a href={routeUrl('/privacy-policy')} onClick={handleInternal('/privacy-policy')}>{copy.footer.privacy}</a></li>
+              <li><a href={routeUrl('/terms')} onClick={handleInternal('/terms')}>{copy.footer.terms}</a></li>
             </ul>
           </nav>
         </div>

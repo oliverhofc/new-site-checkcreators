@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useI18n } from '../i18n.jsx';
+import { routeUrl } from '../utils/paths.js';
 import { useRoute } from '../hooks/RouterContext.jsx';
 
 const CONTACT_COPY = {
@@ -230,7 +231,7 @@ export default function ContactPage() {
 
         <div className="contact-contract-cta">
           <a
-            href="/contract"
+            href={routeUrl('/contract')}
             className="btn btn--primary btn--lg"
             onClick={(event) => {
               event.preventDefault();

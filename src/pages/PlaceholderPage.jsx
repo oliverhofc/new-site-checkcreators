@@ -1,5 +1,6 @@
 import { useRoute } from '../hooks/RouterContext.jsx';
 import { useI18n } from '../i18n.jsx';
+import { routeUrl } from '../utils/paths.js';
 
 export default function PlaceholderPage({ title, titleKey }) {
   const { navigate } = useRoute();
@@ -24,7 +25,7 @@ export default function PlaceholderPage({ title, titleKey }) {
           <p className="body-large">{copy.placeholder.body}</p>
           <div className="hero-cta">
             <a
-              href="/"
+              href={routeUrl('/')}
               className="btn btn--primary btn--lg"
               onClick={(e) => { e.preventDefault(); navigate('/'); }}
             >

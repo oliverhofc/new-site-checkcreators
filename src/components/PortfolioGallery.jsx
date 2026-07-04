@@ -1,4 +1,5 @@
 import { useI18n } from '../i18n.jsx';
+import { assetUrl } from '../utils/paths.js';
 
 const GALLERY_COPY = {
   pt: {
@@ -55,7 +56,7 @@ export default function PortfolioGallery() {
         <div className="portfolio-real-masonry portfolio-real-masonry--hq">
           {copy.items.map((item, index) => (
             <article key={item.title} className={`portfolio-real-card portfolio-real-card--${index + 1}`} style={{ '--stagger': index }}>
-              <img src={item.image} alt={item.title} loading="lazy" />
+              <img src={assetUrl(item.image)} alt={item.title} loading="lazy" />
               <div className="portfolio-real-card-overlay">
                 <span>{item.title}</span>
                 <p>{item.text}</p>

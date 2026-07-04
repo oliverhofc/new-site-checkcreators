@@ -1,4 +1,5 @@
 import { useI18n } from '../i18n.jsx';
+import { routeUrl } from '../utils/paths.js';
 
 const CASE_IMAGES = [
   'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80',
@@ -26,7 +27,7 @@ export default function Cases() {
 
         <div className="cases-grid">
           {copy.cases.items.map((c, i) => (
-            <a key={CASE_HREFS[i]} href={CASE_HREFS[i]} className="case-card" style={{ '--stagger': i }}>
+            <a key={CASE_HREFS[i]} href={routeUrl(CASE_HREFS[i])} className="case-card" style={{ '--stagger': i }}>
               <img src={CASE_IMAGES[i]} alt={c.alt} className="case-image" loading="lazy" />
               <span className="case-badge">{c.badge}</span>
               <div className="case-overlay">
@@ -43,7 +44,7 @@ export default function Cases() {
         </div>
 
         <div className="section-footer">
-          <a href="/portfolio" className="btn btn--outline">
+          <a href={routeUrl('/portfolio')} className="btn btn--outline">
             {copy.cases.button}
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
           </a>

@@ -1,4 +1,5 @@
 import { useI18n } from '../i18n.jsx';
+import { routeUrl } from '../utils/paths.js';
 
 export default function Split() {
   const { copy } = useI18n();
@@ -18,7 +19,7 @@ export default function Split() {
               <ul className="split-list">
                 {creators.list.map((item) => <li key={item}><span className="dot dot--primary"></span>{item}</li>)}
               </ul>
-              <a href="/contract" className="btn btn--primary">
+              <a href={routeUrl('/contract')} className="btn btn--primary">
                 <span className="btn-label">{creators.button}</span>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
               </a>
@@ -33,7 +34,7 @@ export default function Split() {
               <ul className="split-list">
                 {brands.list.map((item) => <li key={item}><span className="dot"></span>{item}</li>)}
               </ul>
-              <a href="/contact" className="btn btn--outline">
+              <a href={routeUrl('/contact')} className="btn btn--outline">
                 {brands.button}
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
               </a>

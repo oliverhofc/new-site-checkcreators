@@ -1,29 +1,31 @@
 import { useState, useEffect, useCallback } from 'react';
+import { normalizeRoutePath, routeUrl } from '../utils/paths.js';
 
 /**
  * Roteador minimalista baseado na History API.
- * Sem dependência externa — apenas window.history + popstate.
- *
- * Uso:
- *   const { path, navigate } = useRouter();
- *   ...
- *   <a href="/portfolio" onClick={(e) => { e.preventDefault(); navigate('/portfolio'); }}>
+ * Preparado para GitHub Pages em subpasta, usando import.meta.env.BASE_URL.
  */
 export function useRouter() {
   const [path, setPath] = useState(() =>
-    typeof window !== 'undefined' ? window.location.pathname : '/'
+    typeof window !== 'undefined' ? normalizeRoutePath(window.location.pathname) : '/'
   );
 
   useEffect(() => {
-    const onPop = () => setPath(window.location.pathname);
+    const onPop = () => setPath(normalizeRoutePath(window.location.pathname));
     window.addEventListener('popstate', onPop);
     return () => window.removeEventListener('popstate', onPop);
   }, []);
 
   const navigate = useCallback((to) => {
-    if (to === window.location.pathname) return;
-    window.history.pushState({}, '', to);
-    setPath(to);
+    const nextPath = normalizeRoutePath(to);
+    const nextUrl = routeUrl(nextPath);
+    const currentPath = normalizeRoutePath(window.location.pathname);
+
+    if (nextPath !== currentPath || window.location.pathname !== new URL(nextUrl, window.location.origin).pathname) {
+      window.history.pushState({}, '', nextUrl);
+    }
+
+    setPath(nextPath);
     window.scrollTo({ top: 0, behavior: 'instant' });
   }, []);
 
@@ -32,12 +34,11 @@ export function useRouter() {
 
 /**
  * Hook auxiliar para criar handler em <a> que navega via SPA
- * mas degradar para link normal quando JS desabilitado.
+ * mas degrada para link normal quando JS estiver desabilitado.
  */
 export function useLinkHandler(navigate) {
   return useCallback(
     (to) => (e) => {
-      // Permite cmd/ctrl+click abrir em nova aba
       if (e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return;
       e.preventDefault();
       navigate(to);

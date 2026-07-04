@@ -1,4 +1,5 @@
 import { useI18n } from '../i18n.jsx';
+import { assetUrl } from '../utils/paths.js';
 
 const PLATFORM_ICONS = {
   video: (
@@ -123,7 +124,7 @@ function ContractVisual({ type, icon, image, title }) {
   return (
     <span className={`contract-visual contract-visual--${type}`} aria-hidden="true">
       {image ? (
-        <img className="contract-visual-image" src={image} alt="" loading="lazy" />
+        <img className="contract-visual-image" src={assetUrl(image)} alt="" loading="lazy" />
       ) : (
         <>
           <span className="visual-orb visual-orb--one"></span>

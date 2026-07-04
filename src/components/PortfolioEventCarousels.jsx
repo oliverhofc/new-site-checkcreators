@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { useI18n } from '../i18n.jsx';
+import { assetUrl } from '../utils/paths.js';
 
 const EVENT_IMAGES = [
   {
@@ -270,7 +271,7 @@ function CarouselRow({ title, images, copy, reverse = false }) {
                 data-clone={isClone ? 'true' : undefined}
               >
                 <img
-                  src={image.src}
+                  src={assetUrl(image.src)}
                   alt={isClone ? '' : image.alt}
                   loading="eager"
                   decoding="async"

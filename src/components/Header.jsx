@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useRoute } from '../hooks/RouterContext.jsx';
 import { useI18n } from '../i18n.jsx';
 import { getWhatsAppLink } from '../utils/whatsapp.js';
+import { routeUrl } from '../utils/paths.js';
 
 const NAV_LINKS = [
   { to: '/',          key: 'home' },
@@ -79,7 +80,7 @@ export default function Header() {
       <header className="site-header">
         <div className="container-wide">
           <nav className="header-nav" aria-label="Main navigation">
-            <a href="/" className="brand" onClick={handleNavClick('/')}>
+            <a href={routeUrl('/')} className="brand" onClick={handleNavClick('/')}>
               <span className="brand-mark" aria-hidden="true">
                 <span className="brand-mark-inner">C</span>
               </span>
@@ -90,7 +91,7 @@ export default function Header() {
               {NAV_LINKS.map(({ to, key }) => (
                 <a
                   key={to}
-                  href={to}
+                  href={routeUrl(to)}
                   className={`nav-link${path === to ? ' is-active' : ''}`}
                   onClick={handleNavClick(to)}
                 >
@@ -143,7 +144,7 @@ export default function Header() {
             {NAV_LINKS.map(({ to, key }) => (
               <a
                 key={to}
-                href={to}
+                href={routeUrl(to)}
                 className={`mobile-drawer-link${path === to ? ' is-active' : ''}`}
                 onClick={handleNavClick(to)}
               >

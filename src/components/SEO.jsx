@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useRoute } from '../hooks/RouterContext.jsx';
 import { useI18n } from '../i18n.jsx';
+import { assetUrl } from '../utils/paths.js';
 
 const SITE_URL = 'https://check2.com.br';
 const BRAND = 'Check Creators';
@@ -351,7 +352,7 @@ export default function SEO() {
     upsertLink('alternate', `${SITE_URL}${path}`, { hreflang: 'pt-BR' });
     upsertLink('alternate', `${SITE_URL}${path}`, { hreflang: 'en-US' });
     upsertLink('alternate', `${SITE_URL}${path}`, { hreflang: 'es-US' });
-    upsertLink('manifest', '/site.webmanifest');
+    upsertLink('manifest', assetUrl('/site.webmanifest'));
 
     let schema = document.getElementById('structured-data');
     if (!schema) {

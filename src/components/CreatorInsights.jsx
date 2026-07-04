@@ -1,4 +1,5 @@
 import { useI18n } from '../i18n.jsx';
+import { routeUrl } from '../utils/paths.js';
 import { useRoute } from '../hooks/RouterContext.jsx';
 
 const INSIGHTS_COPY = {
@@ -152,7 +153,7 @@ export default function CreatorInsights() {
                   ))}
                 </ul>
 
-                <a href={`/article/${item.slug}`} className="creator-insight-link">
+                <a href={routeUrl(`/article/${item.slug}`)} className="creator-insight-link">
                   {copy.readMore}
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <path d="M7 17 17 7"></path>
@@ -166,7 +167,7 @@ export default function CreatorInsights() {
 
         <div className="creator-insights-cta">
           <a
-            href="/contract"
+            href={routeUrl('/contract')}
             className="btn btn--primary btn--lg"
             onClick={handleInternal('/contract')}
           >
@@ -178,7 +179,7 @@ export default function CreatorInsights() {
           </a>
 
           <a
-            href="/contact"
+            href={routeUrl('/contact')}
             className="btn btn--outline btn--lg"
             onClick={handleInternal('/contact')}
           >

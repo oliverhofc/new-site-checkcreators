@@ -1,5 +1,6 @@
 import { useI18n } from '../i18n.jsx';
 import { getWhatsAppLink } from '../utils/whatsapp.js';
+import { assetUrl } from '../utils/paths.js';
 
 const MEMBER_META = [
   {
@@ -81,7 +82,7 @@ export default function TeamGrid() {
           {members.map((m, i) => (
             <article key={`${m.name}-${i}`} className="team-card" style={{ '--stagger': i }}>
               <div className="team-card-head">
-                <img src={m.photo} alt={m.name} className="team-card-photo" loading="lazy" />
+                <img src={assetUrl(m.photo)} alt={m.name} className="team-card-photo" loading="lazy" />
                 <div>
                   <h3 className="team-card-name">{m.name}</h3>
                   <p className="team-card-role">{m.role}</p>

@@ -1,5 +1,6 @@
 import { useRoute } from '../hooks/RouterContext.jsx';
 import { useI18n } from '../i18n.jsx';
+import { routeUrl } from '../utils/paths.js';
 import { getWhatsAppLink } from '../utils/whatsapp.js';
 
 const ARTICLES = {
@@ -288,7 +289,7 @@ export default function ArticlePage({ slug }) {
       <section className="article-hero">
         <div className="container-wide article-hero-grid">
           <div className="article-hero-copy">
-            <a href="/services" className="article-back" onClick={backToServices}>
+            <a href={routeUrl('/services')} className="article-back" onClick={backToServices}>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M19 12H5"></path><path d="m12 19-7-7 7-7"></path></svg>
               {copy.back}
             </a>
@@ -306,7 +307,7 @@ export default function ArticlePage({ slug }) {
                 <span className="btn-label">{copy.ctaButton}</span>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
               </a>
-              <a href="/services" className="btn btn--outline btn--lg" onClick={(e) => { e.preventDefault(); navigate('/services'); }}>
+              <a href={routeUrl('/services')} className="btn btn--outline btn--lg" onClick={(e) => { e.preventDefault(); navigate('/services'); }}>
                 Services
               </a>
             </div>

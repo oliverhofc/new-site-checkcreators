@@ -1,4 +1,5 @@
 import { useI18n } from '../i18n.jsx';
+import { assetUrl, routeUrl } from '../utils/paths.js';
 
 const FOUNDATION_DATE = { year: 2020, month: 10, day: 12 }; // 12/11/2020 - mês em formato JS: novembro = 10
 
@@ -87,7 +88,7 @@ export default function PortfolioAbout() {
             ))}
           </div>
 
-          <a href="/contract" className="btn btn--primary portfolio-real-button">
+          <a href={routeUrl('/contract')} className="btn btn--primary portfolio-real-button">
             <span className="btn-label">{copy.button}</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <path d="M5 12h14"></path>
@@ -97,7 +98,7 @@ export default function PortfolioAbout() {
         </article>
 
         <figure className="portfolio-real-feature-image">
-          <img src="/portfolio-real/about-team.avif" alt={copy.alt} loading="lazy" />
+          <img src={assetUrl('/portfolio-real/about-team.avif')} alt={copy.alt} loading="lazy" />
           <figcaption>Check Creators</figcaption>
         </figure>
       </div>

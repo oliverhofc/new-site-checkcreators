@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useI18n } from '../i18n.jsx';
+import { assetUrl } from '../utils/paths.js';
 
 const AVATARS = [
   '/testimonials/karina-brito.jpg',
@@ -19,7 +20,7 @@ function Star() {
 export default function Testimonials() {
   const { copy, language } = useI18n();
   const [index, setIndex] = useState(0);
-  const testimonials = copy.testimonials.items.map((item, i) => ({ ...item, avatar: AVATARS[i] }));
+  const testimonials = copy.testimonials.items.map((item, i) => ({ ...item, avatar: assetUrl(AVATARS[i]) }));
   const total = testimonials.length;
   const current = testimonials[index];
 
