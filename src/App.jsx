@@ -20,19 +20,37 @@ import { RouterContext } from './hooks/RouterContext.jsx';
 import { I18nProvider, useI18n } from './i18n.jsx';
 
 const ROUTES = {
-  '/':           () => <HomePage />,
+  '/': () => <HomePage />,
   '/portfolio': () => <PortfolioPage />,
-  '/team':      () => <TeamPage />,
-  '/services':  () => <ServicesPage />,
-  '/contact':   () => <ContactPage />,
-  '/faq':       () => <FAQPage />,
+  '/team': () => <TeamPage />,
+  '/services': () => <ServicesPage />,
+  '/contact': () => <ContactPage />,
+  '/faq': () => <FAQPage />,
   '/privacy-policy': () => <LegalPage type="privacy" />,
-  '/terms':     () => <LegalPage type="terms" />,
-  '/contract':  () => <ContractPage />,
+  '/terms': () => <LegalPage type="terms" />,
+  '/contract': () => <ContractPage />,
   '/article/consultoria-criativa': () => <ArticlePage slug="consultoria-criativa" />,
   '/article/estrategia-crescimento': () => <ArticlePage slug="estrategia-crescimento" />,
   '/article/monetizacao': () => <ArticlePage slug="monetizacao" />,
 };
+
+function normalizeGithubPagesPath(path) {
+  const base = import.meta.env.BASE_URL || '/';
+  const cleanBase = base.replace(/\/$/, '');
+
+  if (!path) return '/';
+
+  if (cleanBase && path === cleanBase) {
+    return '/';
+  }
+
+  if (cleanBase && path.startsWith(`${cleanBase}/`)) {
+    const normalized = path.slice(cleanBase.length);
+    return normalized || '/';
+  }
+
+  return path;
+}
 
 function NotFound() {
   const { copy } = useI18n();
@@ -41,10 +59,17 @@ function NotFound() {
 
 function AppShell() {
   const router = useRouter();
-  const Page = ROUTES[router.path] || NotFound;
+
+  const normalizedPath = normalizeGithubPagesPath(router.path);
+  const Page = ROUTES[normalizedPath] || NotFound;
+
+  const fixedRouter = {
+    ...router,
+    path: normalizedPath,
+  };
 
   return (
-    <RouterContext.Provider value={router}>
+    <RouterContext.Provider value={fixedRouter}>
       <PageBg />
       <ScrollProgress />
       <SEO />
