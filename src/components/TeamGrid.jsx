@@ -46,7 +46,7 @@ const MEMBER_META = [
     email: 'programador@check2.com.br'
   },
   {
-    photo: '/team/lucas-barcia.svg',
+    photo: '/team/lucas-barcia.jpg',
     phone: '+55 11 97130-7766',
     whatsapp: '5511971307766',
     whatsappUrl: 'https://wa.me/5511971307766?text=Ol%C3%A1!',
