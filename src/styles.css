@@ -8006,3 +8006,185 @@ main {
     transition: none;
   }
 }
+
+/* =========================================================
+   57. Mobile compacto + depoimentos sem delay
+   ========================================================= */
+.testimonial-preload-images {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.testimonial-preload-images img {
+  width: 1px;
+  height: 1px;
+  object-fit: cover;
+}
+
+@media (max-width: 820px) {
+  .stats {
+    padding-block: 1.15rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: .8rem !important;
+    align-items: stretch;
+  }
+
+  .stat {
+    padding: .85rem .55rem;
+    border-radius: 1rem;
+  }
+
+  .stat-value {
+    font-size: clamp(1.55rem, 9vw, 2.3rem) !important;
+    line-height: .95;
+  }
+
+  .stat-label {
+    margin-top: .35rem;
+    font-size: .78rem;
+    line-height: 1.25;
+    max-width: 12rem;
+    margin-inline: auto;
+  }
+
+  .portfolio-real-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: .65rem !important;
+    margin-block: 1.05rem !important;
+  }
+
+  .portfolio-real-stat {
+    padding: .85rem .55rem !important;
+    border-radius: 1rem !important;
+    text-align: center;
+  }
+
+  .portfolio-real-stat strong {
+    font-size: clamp(1.45rem, 9vw, 2.05rem) !important;
+    line-height: .95;
+  }
+
+  .portfolio-real-stat span {
+    display: block;
+    margin-top: .35rem;
+    font-size: .76rem;
+    line-height: 1.25;
+  }
+
+  .site-footer .container-wide {
+    padding-block: 2rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 1.15rem .8rem !important;
+    align-items: start;
+  }
+
+  .footer-about {
+    grid-column: 1 / -1;
+    gap: 1rem;
+  }
+
+  .footer-about-text {
+    max-width: 100%;
+    font-size: .9rem;
+    line-height: 1.55;
+  }
+
+  .footer-contact {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: .48rem;
+  }
+
+  .footer-social {
+    flex-wrap: wrap;
+    gap: .65rem;
+  }
+
+  .footer-social-link {
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+
+  .footer-title {
+    margin-bottom: .55rem;
+    font-size: .88rem;
+  }
+
+  .footer-nav ul {
+    display: flex !important;
+    flex-direction: column !important;
+    grid-template-columns: none !important;
+    gap: .32rem !important;
+  }
+
+  .footer-nav a {
+    min-height: auto !important;
+    padding: .18rem 0;
+    font-size: .84rem;
+    line-height: 1.25;
+  }
+
+  .footer-bottom {
+    margin-top: 1.4rem;
+    padding-top: 1.15rem;
+    gap: .35rem;
+    font-size: .78rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .stats-grid,
+  .portfolio-real-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .stat {
+    padding: .75rem .45rem;
+  }
+
+  .stat-value {
+    font-size: clamp(1.45rem, 10vw, 2.15rem) !important;
+  }
+
+  .stat-label,
+  .portfolio-real-stat span {
+    font-size: .72rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 1rem .65rem !important;
+  }
+
+  .footer-about {
+    grid-column: 1 / -1;
+  }
+
+  .footer-nav a {
+    font-size: .78rem;
+  }
+
+  .footer-title {
+    font-size: .82rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .footer-about {
+    grid-column: 1 / -1;
+  }
+}

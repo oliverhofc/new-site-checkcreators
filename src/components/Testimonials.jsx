@@ -1,12 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useI18n } from '../i18n.jsx';
 import { assetUrl } from '../utils/paths.js';
 
 const AVATARS = [
-  '/testimonials/karina-brito.jpg',
-  '/testimonials/nilton-teclas.jpg',
-  '/testimonials/andrezza-salvador.jpg',
-  '/testimonials/marcia-nara.jpg'
+  '/testimonials/karina-brito.webp',
+  '/testimonials/nilton-teclas.webp',
+  '/testimonials/andrezza-salvador.webp',
+  '/testimonials/marcia-nara.webp'
 ];
 
 function Star() {
@@ -20,13 +20,22 @@ function Star() {
 export default function Testimonials() {
   const { copy, language } = useI18n();
   const [index, setIndex] = useState(0);
-  const testimonials = copy.testimonials.items.map((item, i) => ({ ...item, avatar: assetUrl(AVATARS[i]) }));
+  const testimonialAvatars = useMemo(() => AVATARS.map((avatar) => assetUrl(avatar)), []);
+  const testimonials = copy.testimonials.items.map((item, i) => ({ ...item, avatar: testimonialAvatars[i] }));
   const total = testimonials.length;
   const current = testimonials[index];
 
   useEffect(() => {
     setIndex(0);
   }, [language]);
+
+  useEffect(() => {
+    testimonialAvatars.forEach((src) => {
+      const image = new Image();
+      image.decoding = 'async';
+      image.src = src;
+    });
+  }, [testimonialAvatars]);
 
   const go = (i) => setIndex((i + total) % total);
   const prev = () => go(index - 1);
@@ -42,6 +51,12 @@ export default function Testimonials() {
         </header>
 
         <figure className="testimonial glass-card">
+          <div className="testimonial-preload-images" aria-hidden="true">
+            {testimonialAvatars.map((avatar) => (
+              <img key={avatar} src={avatar} alt="" loading="eager" decoding="async" />
+            ))}
+          </div>
+
           <svg className="testimonial-quote-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path>
             <path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path>
@@ -67,11 +82,11 @@ export default function Testimonials() {
                   className="testimonial-avatar-ring testimonial-avatar-link"
                   aria-label={`Abrir perfil de ${current.name}`}
                 >
-                  <img src={current.avatar} alt={current.name} className="testimonial-avatar" />
+                  <img src={current.avatar} alt={current.name} className="testimonial-avatar" loading="eager" decoding="async" fetchPriority="high" />
                 </a>
               ) : (
                 <span className="testimonial-avatar-ring">
-                  <img src={current.avatar} alt={current.name} className="testimonial-avatar" />
+                  <img src={current.avatar} alt={current.name} className="testimonial-avatar" loading="eager" decoding="async" fetchPriority="high" />
                 </span>
               )}
               <div>
