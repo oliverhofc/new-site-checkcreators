@@ -6,7 +6,7 @@ export default function Marquee() {
   const tickerItems = [...platforms, ...platforms, ...platforms, ...platforms];
 
   return (
-    <section className="bf-ticker-section" data-reveal aria-label={copy.marquee.caption}>
+    <section className="bf-ticker-section" aria-label={copy.marquee.caption}>
       <div className="bf-ticker">
         <div className="bf-ticker-track">
           {tickerItems.map((name, index) => (

@@ -1,3 +1,4 @@
+import { useEffect, useMemo } from 'react';
 import { useI18n } from '../i18n.jsx';
 import { assetUrl } from '../utils/paths.js';
 
@@ -120,11 +121,45 @@ const SERVICE_PAGE_COPY = {
   }
 };
 
+const PRELOAD_CONTRACT_IMAGES = [
+  '/contracts/kwai-video.jpg',
+  '/contracts/kwai-live.jpg',
+  '/contracts/kwai-cut.jpg',
+  '/contracts/tiktok-live.jpg',
+  '/contracts/tiktok-shop.jpg'
+];
+
+function ContractImagePreloader({ images }) {
+  useEffect(() => {
+    const uniqueImages = Array.from(new Set(images));
+    const createdLinks = [];
+
+    uniqueImages.forEach((image) => {
+      const href = assetUrl(image);
+      if (document.querySelector(`link[rel="preload"][as="image"][href="${href}"]`)) return;
+
+      const link = document.createElement('link');
+      link.rel = 'preload';
+      link.as = 'image';
+      link.href = href;
+      link.fetchPriority = 'high';
+      document.head.appendChild(link);
+      createdLinks.push(link);
+    });
+
+    return () => {
+      createdLinks.forEach((link) => link.remove());
+    };
+  }, [images]);
+
+  return null;
+}
+
 function ContractVisual({ type, icon, image, title }) {
   return (
     <span className={`contract-visual contract-visual--${type}`} aria-hidden="true">
       {image ? (
-        <img className="contract-visual-image" src={assetUrl(image)} alt="" loading="eager" decoding="async" fetchPriority="high" />
+        <img className="contract-visual-image" src={assetUrl(image)} alt="" width="360" height="360" loading="eager" decoding="async" fetchPriority="high" />
       ) : (
         <>
           <span className="visual-orb visual-orb--one"></span>
@@ -183,9 +218,11 @@ function FaqItem({ item, index }) {
 export default function ContractPage() {
   const { language } = useI18n();
   const page = SERVICE_PAGE_COPY[language] || SERVICE_PAGE_COPY.en;
+  const preloadImages = useMemo(() => [...PRELOAD_CONTRACT_IMAGES, ...page.contracts.map((contract) => contract.image).filter(Boolean)], [page.contracts]);
 
   return (
-    <section className="contracts-showcase" data-reveal>
+    <section className="contracts-showcase">
+      <ContractImagePreloader images={preloadImages} />
       <div className="hero-bg" aria-hidden="true">
         <div className="hero-blob hero-blob--1"></div>
         <div className="hero-blob hero-blob--2"></div>

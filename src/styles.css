@@ -8188,3 +8188,56 @@ main {
     grid-column: 1 / -1;
   }
 }
+
+
+/* =========================================================
+   43. Performance percebida — contratos e faixa mobile
+   ========================================================= */
+.bf-ticker-section {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.bf-ticker-track {
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+}
+
+.contract-visual {
+  background:
+    linear-gradient(135deg, hsl(224 30% 8% / .98), hsl(184 80% 7% / .84)),
+    radial-gradient(circle at 50% 50%, hsl(var(--primary) / .16), transparent 58%);
+}
+
+.contract-visual-image {
+  display: block;
+  background: hsl(224 30% 7%);
+  image-rendering: auto;
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+.contracts-tiles,
+.contract-tile,
+.contract-visual {
+  content-visibility: visible;
+}
+
+@media (max-width: 760px) {
+  .bf-ticker-section {
+    contain: layout paint;
+  }
+
+  .bf-ticker {
+    padding-block: .52rem;
+  }
+
+  .bf-ticker-track {
+    animation-duration: 10s !important;
+  }
+
+  .bf-ticker-item {
+    min-height: 2.35rem;
+    padding: .54rem .82rem;
+  }
+}
