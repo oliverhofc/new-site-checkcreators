@@ -124,7 +124,7 @@ function ContractVisual({ type, icon, image, title }) {
   return (
     <span className={`contract-visual contract-visual--${type}`} aria-hidden="true">
       {image ? (
-        <img className="contract-visual-image" src={assetUrl(image)} alt="" loading="lazy" />
+        <img className="contract-visual-image" src={assetUrl(image)} alt="" loading="eager" decoding="async" fetchPriority="high" />
       ) : (
         <>
           <span className="visual-orb visual-orb--one"></span>

@@ -4,32 +4,32 @@ import { assetUrl } from '../utils/paths.js';
 
 const EVENT_IMAGES = [
   {
-    src: '/portfolio-events/premio-kwai-2025-01.png',
+    src: '/portfolio-events/premio-kwai-2025-01.webp',
     alt: 'Registro da Check Creators no Prêmio Kwai 2025',
     label: 'Prêmio Kwai 2025'
   },
   {
-    src: '/portfolio-events/sbt-encontro-01.png',
+    src: '/portfolio-events/sbt-encontro-01.webp',
     alt: 'Registro da Check Creators em frente ao SBT',
     label: 'Relacionamento com mídia'
   },
   {
-    src: '/portfolio-events/tv-studio-01.png',
+    src: '/portfolio-events/tv-studio-01.webp',
     alt: 'Participação da Check Creators no programa Casos de Família, apresentado por Christina Rocha, no SBT',
     label: 'Casos de Família — SBT'
   },
   {
-    src: '/portfolio-events/premio-kwai-2025-02.png',
+    src: '/portfolio-events/premio-kwai-2025-02.webp',
     alt: 'Registro de bastidores do Prêmio Kwai 2025',
     label: 'Bastidores premium'
   },
   {
-    src: '/portfolio-events/premio-kwai-2025-03.png',
+    src: '/portfolio-events/premio-kwai-2025-03.webp',
     alt: 'Registro de networking da Check Creators no Prêmio Kwai 2025',
     label: 'Networking estratégico'
   },
   {
-    src: '/portfolio-events/premio-kwai-2025-04.png',
+    src: '/portfolio-events/premio-kwai-2025-04.webp',
     alt: 'Registro de premiação com representantes e creators',
     label: 'Conexões com creators'
   }
@@ -37,32 +37,32 @@ const EVENT_IMAGES = [
 
 const BACKSTAGE_IMAGES = [
   {
-    src: '/portfolio-events/premio-kwai-2025-05.png',
+    src: '/portfolio-events/premio-kwai-2025-05.webp',
     alt: 'Registro da Check Creators com apresentadora em evento',
     label: 'Eventos oficiais'
   },
   {
-    src: '/portfolio-events/premio-kwai-2025-06.png',
+    src: '/portfolio-events/premio-kwai-2025-06.webp',
     alt: 'Registro da Check Creators em encontro com creator',
     label: 'Encontros especiais'
   },
   {
-    src: '/portfolio-events/evento-premiacao-01.png',
+    src: '/portfolio-events/evento-premiacao-01.webp',
     alt: 'Registro da Check Creators em evento de premiação',
     label: 'Premiação e destaque'
   },
   {
-    src: '/portfolio-events/evento-premiacao-02.png',
+    src: '/portfolio-events/evento-premiacao-02.webp',
     alt: 'Registro da Check Creators em celebração de evento',
     label: 'Experiências reais'
   },
   {
-    src: '/portfolio-events/ativacao-kwai-01.png',
+    src: '/portfolio-events/ativacao-kwai-01.webp',
     alt: 'Registro em ativação da marca Kwai',
     label: 'Ativação Kwai'
   },
   {
-    src: '/portfolio-events/reuniao-estrategica-01.png',
+    src: '/portfolio-events/reuniao-estrategica-01.webp',
     alt: 'Participação da Check Creators no podcast osfellascast',
     label: 'Podcast osfellascast'
   }
@@ -273,8 +273,9 @@ function CarouselRow({ title, images, copy, reverse = false }) {
                 <img
                   src={assetUrl(image.src)}
                   alt={isClone ? '' : image.alt}
-                  loading="eager"
+                  loading={!isClone && index < 2 ? 'eager' : 'lazy'}
                   decoding="async"
+                  fetchPriority={!isClone && index < 2 ? 'high' : 'auto'}
                 />
                 <figcaption>{image.label}</figcaption>
               </figure>

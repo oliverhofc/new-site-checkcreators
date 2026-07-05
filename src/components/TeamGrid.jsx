@@ -17,8 +17,8 @@ const MEMBER_META = [
   },
   {
     photo: '/team/letycia.jpg',
-    phone: '(13) 9 9699-7659',
-    whatsapp: '5513996997659',
+    phone: '+55 13 99109-6973',
+    whatsapp: '5513991096973',
     email: 'letyciasacramento@check2.com.br'
   },
   {
@@ -44,6 +44,13 @@ const MEMBER_META = [
     phone: '(13) 9 8168-5176',
     whatsapp: '5513981685176',
     email: 'programador@check2.com.br'
+  },
+  {
+    photo: '/team/lucas-barcia.svg',
+    phone: '+55 11 97130-7766',
+    whatsapp: '5511971307766',
+    whatsappUrl: 'https://wa.me/5511971307766?text=Ol%C3%A1!',
+    email: 'lucasbarcia@check2.com.br'
   }
 ];
 
@@ -82,7 +89,7 @@ export default function TeamGrid() {
           {members.map((m, i) => (
             <article key={`${m.name}-${i}`} className="team-card" style={{ '--stagger': i }}>
               <div className="team-card-head">
-                <img src={assetUrl(m.photo)} alt={m.name} className="team-card-photo" loading="lazy" />
+                <img src={assetUrl(m.photo)} alt={m.name} className="team-card-photo" loading={i < 4 ? 'eager' : 'lazy'} decoding="async" fetchPriority={i < 2 ? 'high' : 'auto'} />
                 <div>
                   <h3 className="team-card-name">{m.name}</h3>
                   <p className="team-card-role">{m.role}</p>
@@ -96,7 +103,7 @@ export default function TeamGrid() {
               {(m.phone || m.email) && (
                 <div className="team-card-contact">
                   {m.phone && m.whatsapp && (
-                    <a href={teamWhatsAppLink(m.whatsapp)} target="_blank" rel="noopener noreferrer" className="team-card-link" aria-label={`${copy.team.grid.whatsappLabel} ${m.name}: ${m.phone}`}>
+                    <a href={m.whatsappUrl || teamWhatsAppLink(m.whatsapp)} target="_blank" rel="noopener noreferrer" className="team-card-link" aria-label={`${copy.team.grid.whatsappLabel} ${m.name}: ${m.phone}`}>
                       <WhatsAppIcon />
                       <span>{m.phone}</span>
                     </a>

@@ -167,7 +167,8 @@ export const translations = {
         { name: 'Larissa Sacramento', role: 'Head of Digital Marketing', bio: ['People management expertise', 'English Teacher', 'TikTok instructor', 'Administrative assistant focused on organization and operational support'] },
         { name: 'Bianca and Rodrigo', role: 'Heads of Check Diamond', bio: ['Marketing and sales specialists', 'Authorized resellers', 'Digital influencers'] },
         { name: 'Cesar Veiga', role: 'Head of Digital Marketing', bio: ['Paid traffic management specialist', 'Digital marketing specialist', 'Budget management'] },
-        { name: 'Gustavo Serão', role: 'Head of Technology', bio: ['High-performance software development specialist', 'Programming specialist'] }
+        { name: 'Gustavo Serão', role: 'Head of Technology', bio: ['High-performance software development specialist', 'Programming specialist'] },
+        { name: 'Lucas Barcia', role: 'Audiovisual Specialist', bio: ['Audiovisual professional with 10 years of experience', 'Expertise in Adobe Premiere', 'Always seeking inspiration from series, films and digital content'] }
       ]
     },
     footer: {
@@ -199,7 +200,8 @@ export const translations = {
         { name: 'Larissa Sacramento', role: 'Head de Marketing Digital', bio: ['Expertise em gestão de pessoas', 'Professora de inglês', 'Instrutora especializada em TikTok', 'Auxiliar administrativo com foco em organização e suporte operacional'] },
         { name: 'Bianca e Rodrigo', role: 'Heads do Check Diamond', bio: ['Especialistas em marketing e vendas', 'Revendedores autorizados', 'Influenciadores digitais'] },
         { name: 'Cesar Veiga', role: 'Head de Marketing Digital', bio: ['Especialista em gestão de tráfego pago', 'Especialista em marketing digital', 'Gestão de orçamento'] },
-        { name: 'Gustavo Serão', role: 'Head de Tecnologia', bio: ['Especialista em desenvolvimento de softwares de alto desempenho', 'Especialista em programação'] }
+        { name: 'Gustavo Serão', role: 'Head de Tecnologia', bio: ['Especialista em desenvolvimento de softwares de alto desempenho', 'Especialista em programação'] },
+        { name: 'Lucas Barcia', role: 'Especialista em Audiovisual', bio: ['Profissional de audiovisual há 10 anos', 'Expertise em Adobe Premiere', 'Sempre buscando inspiração em séries, filmes e conteúdos digitais'] }
       ] },
     footer: { about: 'Agência de publicidade e gestão de criadores digitais. Transformamos talentos em marcas e marcas em histórias.', company: 'Empresa', resources: 'Recursos', legal: 'Legal', home: 'Início', portfolio: 'Portfólio', services: 'Serviços', team: 'Equipe', contract: 'Contratos', contact: 'Contato', faq: 'FAQ', privacy: 'Política de Privacidade', terms: 'Termos e Condições', location: 'São Paulo, Brasil', rights: 'Todos os direitos reservados.', made: 'Feito com', in: 'em São Paulo' },
     placeholder: { soon: 'Em breve', body: 'Esta página está em construção. Volte em breve para conferir.', back: 'Voltar ao início' }
@@ -226,7 +228,8 @@ export const translations = {
         { name: 'Larissa Sacramento', role: 'Head de Marketing Digital', bio: ['Expertise en gestión de personas', 'Profesora de inglés', 'Instructora especializada en TikTok', 'Auxiliar administrativa con enfoque en organización y soporte operativo'] },
         { name: 'Bianca y Rodrigo', role: 'Heads de Check Diamond', bio: ['Especialistas en marketing y ventas', 'Revendedores autorizados', 'Influencers digitales'] },
         { name: 'Cesar Veiga', role: 'Head de Marketing Digital', bio: ['Especialista en gestión de tráfico pago', 'Especialista en marketing digital', 'Gestión de presupuesto'] },
-        { name: 'Gustavo Serão', role: 'Head de Tecnología', bio: ['Especialista en desarrollo de software de alto rendimiento', 'Especialista en programación'] }
+        { name: 'Gustavo Serão', role: 'Head de Tecnología', bio: ['Especialista en desarrollo de software de alto rendimiento', 'Especialista en programación'] },
+        { name: 'Lucas Barcia', role: 'Especialista en Audiovisual', bio: ['Profesional audiovisual con 10 años de experiencia', 'Expertise en Adobe Premiere', 'Siempre busca inspiración en series, películas y contenidos digitales'] }
       ] },
     footer: { about: 'Agencia de publicidad y gestión de creadores digitales. Convertimos talentos en marcas y marcas en historias.', company: 'Empresa', resources: 'Recursos', legal: 'Legal', home: 'Inicio', portfolio: 'Portafolio', services: 'Servicios', team: 'Equipo', contract: 'Contratos', contact: 'Contacto', faq: 'FAQ', privacy: 'Política de Privacidad', terms: 'Términos y Condiciones', location: 'São Paulo, Brasil', rights: 'Todos los derechos reservados.', made: 'Hecho con', in: 'en São Paulo' },
     placeholder: { soon: 'Próximamente', body: 'Esta página está en construcción. Vuelve pronto para verla.', back: 'Volver al inicio' }
